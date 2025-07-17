@@ -6,9 +6,9 @@ import Feed from "./components/feed/Feed"
 function App() {
 
   return (
-    <div className="bg-[#f1f2f5] h-[100vh]">
+    <div className="bg-[#f1f2f5] ">
     <Header />
-    <div className="appbody flex">
+    <div className="appbody flex flex-1 overflow-hidden">
       <Sidebar /> 
       <Feed />
     </div>
