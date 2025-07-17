@@ -1,10 +1,19 @@
 import React from 'react'
-import { RxAvatar } from 'react-icons/rx'
+import { useStateValue } from '../StateProvide';
 
 const SidebarRow = ({src, Icon, title}) => {
+  const [{user}, dispatch] = useStateValue();
   return (
     <div className='flex items-center p-2.5 hover:bg-gray-200 cursor-pointer'>
-        {src && <RxAvatar  src={src} size="1.5rem" />}
+        {src && <img 
+                    src={user?.photoURL || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
+                    alt="profile" 
+                    className='h-8 w-8  rounded-full object-cover  flex-shrink-0'
+                    onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
+                    }}
+                />}
         {Icon && <Icon className='text-[#2e81f4]' size="1.5rem"/>}
 
         <h4 className="ml-5 font-semibold">{title}</h4>
