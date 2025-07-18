@@ -68,15 +68,15 @@ const Header = () => {
         {/* Left section */}
         <div className='flex items-center'>
           <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png"
-            alt="facebook logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Chat-bubble.png"
+            alt="yappa logo"
             className='h-8 sm:h-10'
           />
           <div className='hidden sm:flex items-center bg-[#eff2f5] p-2 ml-2 rounded-full'>
             <FaSearch className="text-gray-500" />
             <input 
               type="text" 
-              placeholder="Search Facebook"
+              placeholder="Search Yappa"
               className='hidden md:block bg-transparent border-none outline-none ml-2 w-40 lg:w-60'
             />
           </div>
