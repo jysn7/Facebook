@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import StoryReel from './StoryReel';
 import MessageSender from './MessageSender';
-import Post from './Post';
+import Post from './post/Post';
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 import db from '../../firebase';
 

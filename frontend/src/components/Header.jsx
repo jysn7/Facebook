@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { FaSearch, FaHome, FaBars, FaTimes } from "react-icons/fa"
-import { BsFlag } from "react-icons/bs"
+import { BsFlag } from "react-icons/bs";
+import { motion } from 'framer-motion';
 import { 
   MdOutlineSubscriptions, 
   MdSupervisedUserCircle,
@@ -102,20 +103,11 @@ const Header = () => {
 
         {/* Right section */}
         <div className='flex items-center space-x-1 sm:space-x-2'>
-          {/* Mobile menu button - only shows on small screens */}
-          <div className='sm:hidden p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
-            {isMobileMenuOpen ? (
-              <FaTimes className='text-xl' onClick={toggleMobileMenu} />
-            ) : (
-              <FaBars className='text-xl' onClick={toggleMobileMenu} />
-            )}
-          </div>
           
           {/* Desktop right menu items */}
           <div className=' sm:flex items-center space-x-1 sm:space-x-2'>
-            <a 
+            <div 
              className='flex items-center p-1 rounded-full cursor-pointer hover:bg-gray-100'
-             href='/profile'
             >
               <img 
                 src={user.photoURL} 
@@ -123,7 +115,7 @@ const Header = () => {
                 className='mr-2.5  rounded-full h-10 w-10 object-cover'
               />
               <span className='hidden lg:block ml-2 font-medium'>{user.displayName}</span>
-            </a>
+            </div>
             <div className='p-1 hidden lg:block sm:p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
               <IoMdAdd className='text-lg sm:text-xl' />
             </div>
@@ -147,13 +139,13 @@ const Header = () => {
               {isExpandOpen && (
                 <div 
                   ref={expandMenuRef}
-                  className="absolute right-0 mt-2 w-50 origin-top-right rounded-md bg-white shadow-lg  ring-opacity-5 focus:outline-none z-50"
+                  className="absolute border-1 border-gray-200 right-0 mt-2 w-50 origin-top-right rounded-md bg-white shadow-lg  ring-opacity-5 focus:outline-none z-50"
                   role="menu"
                   aria-orientation="vertical"
                 >
                   <div className="" role="none">
                     <button
-                      className="flex w-full items-center px-4 cursor-pointer py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      className="flex w-full items-center px-4 cursor-pointer py-3 border-b-2 border-b-gray-200 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       role="menuitem"
                       onClick={() => setIsExpandOpen(false)}
                     >
@@ -161,80 +153,108 @@ const Header = () => {
                       Settings
                     </button>
                     <button
-                      className="flex w-full items-center px-4 py-2 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      className="flex w-full items-center px-4 py-3 cursor-pointer text-sm text-red-500 hover:bg-gray-100 hover:text-gray-900"
                       role="menuitem"
                       onClick={handleLogout}
                     >
-                      <IoLogOutOutline className="mr-3 h-5 w-5 text-gray-400" />
+                      <IoLogOutOutline className="mr-3 h-5 w-5 text-red-500" />
                       Logout
                     </button>
                   </div>
                 </div>
               )}
-            </div>
+            </div>         
+          </div>
 
+          {/* Mobile menu button - only shows on small screens */}
+          <div className='sm:hidden p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
+            {isMobileMenuOpen ? (
+              <FaTimes className='text-xl' onClick={toggleMobileMenu} />
+            ) : (
+              <FaBars className='text-xl' onClick={toggleMobileMenu} />
+            )}
           </div>
         </div>
       </div>
 
       {/* Mobile Sidebar Menu */}
       {isMobileMenuOpen && (
-        <div className='fixed inset-0 z-40'>
-          {/* Overlay */}
-          <div 
-            className='absolute inset-0 bg-black bg-opacity-50'
+        <div className="fixed inset-0 z-50 bg-gray-900/75 bg-opacity-90 backdrop-blur-sm flex">
+          {/* Transparent overlay that closes the sidebar when clicked */}
+          <div
+            className="flex-1"
             onClick={toggleMobileMenu}
-          ></div>
-          
-          {/* Sidebar Content */}
-          <div className='absolute right-0 top-0 h-full w-64 bg-white shadow-lg overflow-y-auto'>
-            <div className='p-4 border-b border-gray-200 flex items-center justify-between'>
-              <div className='flex items-center'>
-                <RxAvatar size="2rem" className='text-gray-500 mr-3' />
-                <span className='font-medium'>User Name</span>
-              </div>
-              <FaTimes 
-                className='text-gray-500 text-xl cursor-pointer' 
-                onClick={toggleMobileMenu}
+            aria-hidden="true"
+          />
+
+          {/* Sidebar drawer fixed on the right */}
+          <motion.div
+            initial={{ x: '100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '100%', opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            className="relative w-72 max-w-full h-full bg-white rounded-l-2xl shadow-2xl overflow-y-auto"
+          >
+            {/* Close button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="absolute top-7 right-4 text-gray-500 hover:text-blue-500 transition"
+              aria-label="Close sidebar"
+            >
+              <FaTimes className="text-2xl" />
+            </button>
+
+            {/* Header */}
+            <div className="p-6 bg-blue-900/25 border-b border-gray-200 flex items-center space-x-4">
+              <img 
+                src={user.photoURL} 
+                alt="Profile" 
+                className='mr-2.5  rounded-full h-10 w-10 object-cover'
               />
+              <span className="font-semibold text-lg text-white">{user?.displayName || 'User Name'}</span>
             </div>
-            
-            <div className='p-2'>
-              <div className='flex items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer'>
-                <RxAvatar className='text-gray-500 mr-3 text-xl' />
-                <span>Your Profile</span>
-              </div>
-              <div className='flex items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer'>
-                <MdForum className='text-gray-500 mr-3 text-xl' />
+
+            {/* Sidebar content */}
+            <nav className="p-6 space-y-4">
+              
+
+              <div className="flex items-center p-3 rounded-lg cursor-pointer text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition">
+                <MdForum className="mr-3 text-xl" />
                 <span>Messages</span>
               </div>
-              <div className='flex items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer'>
-                <MdNotificationsActive className='text-gray-500 mr-3 text-xl' />
+
+              <div className="flex items-center p-3 rounded-lg cursor-pointer text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition">
+                <MdNotificationsActive className="mr-3 text-xl" />
                 <span>Notifications</span>
               </div>
-              <div className='flex items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer'>
-                <MdSettings className='text-gray-500 mr-3 text-xl' />
+
+              <div className="flex items-center p-3 rounded-lg cursor-pointer text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition">
+                <MdSettings className="mr-3 text-xl" />
                 <span>Settings</span>
               </div>
-              <div className='flex items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer'>
-                <MdHelp className='text-gray-500 mr-3 text-xl' />
+
+              <div className="flex items-center p-3 rounded-lg cursor-pointer text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition">
+                <MdHelp className="mr-3 text-xl" />
                 <span>Help & Support</span>
               </div>
-              <div className='flex items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer'>
-                <MdNightlight className='text-gray-500 mr-3 text-xl' />
+
+              <div className="flex items-center p-3 rounded-lg cursor-pointer text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition">
+                <MdNightlight className="mr-3 text-xl" />
                 <span>Dark Mode</span>
               </div>
-              <button 
-               className='flex items-center p-3 rounded-lg hover:bg-gray-100 cursor-pointer'
-               onClick={handleLogout}
+
+              <button
+                onClick={handleLogout}
+                className="flex items-center p-3 rounded-lg cursor-pointer text-red-600 hover:bg-red-100 hover:text-red-700 transition w-full font-semibold"
               >
-                <MdLogout className='text-gray-500 mr-3 text-xl' />
-                <span>Log Out</span>
+                <MdLogout className="mr-3 text-xl" />
+                Log Out
               </button>
-            </div>
-          </div>
+            </nav>
+          </motion.div>
         </div>
       )}
+
     </>
   )
 }
