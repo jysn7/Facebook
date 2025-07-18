@@ -4,7 +4,7 @@ import { useStateValue } from '../StateProvide';
 const SidebarRow = ({src, Icon, title}) => {
   const [{user}, dispatch] = useStateValue();
   return (
-    <div className='flex items-center p-2.5 hover:bg-gray-200 cursor-pointer'>
+    <div className='flex items-center hover:rounded-lg py-3.5 px-2.5  hover:bg-gray-200 cursor-pointer'>
         {src && <img 
                     src={user?.photoURL || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
                     alt="profile" 
@@ -16,7 +16,7 @@ const SidebarRow = ({src, Icon, title}) => {
                 />}
         {Icon && <Icon className='text-[#2e81f4]' size="1.5rem"/>}
 
-        <h4 className="ml-5 font-semibold">{title}</h4>
+        <h4 className="ml-5 text-gray-900 font-semibold">{title}</h4>
     </div>
   )
 }

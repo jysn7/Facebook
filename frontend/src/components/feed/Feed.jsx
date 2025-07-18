@@ -25,7 +25,9 @@ const Feed = () => {
   }, []);
 
   return (
-    <div className='flex-1 w-full px-4 md:px-8 py-4 md:py-6'>
+    <div className='flex-1 w-full px-4 md:px-8 py-4 md:py-6'
+     id='feed'
+     >
       <div className='max-w-[600px] w-full mx-auto flex flex-col space-y-4 md:space-y-6'>
         <MessageSender />
         <div className='w-full overflow-x-hidden'>

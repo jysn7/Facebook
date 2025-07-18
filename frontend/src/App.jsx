@@ -44,16 +44,30 @@ function App() {
   }
 
   return (
-    <div className="bg-[#f1f2f5]">
+    <div className="bg-[#f1f2f5] min-h-screen">
       {!user ? (
         <Login />
       ) : (
         <>
           <Header />
-          <div className="appbody flex flex-1 overflow-hidden">
-            <Sidebar />
-            <Feed />
-            <Widgets />
+          <div className="flex h-[100vh]"> {/* Subtract header height */}
+            {/* Sidebar - fixed width and sticky */}
+            <div className="hidden lg:block w-64 flex-shrink-0 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto">
+              <Sidebar />
+            </div>
+            
+            {/* Main content area */}
+            <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+              {/* Feed - takes remaining space */}
+              <div className="flex-1 scrollbar-hide overflow-y-auto ">
+                <Feed />
+              </div>
+              
+              {/* Widgets - fixed width on larger screens */}
+              <div className="lg:w-80 flex-shrink-0 overflow-y-auto">
+                <Widgets />
+              </div>
+            </div>
           </div>
         </>
       )}

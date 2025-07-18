@@ -43,7 +43,6 @@ const Header = () => {
         user: null,
       })
       console.log("User signed out");
-      // Optionally redirect or clear state
     })
     .catch((error) => {
       console.error("Sign out error", error);
@@ -113,22 +112,25 @@ const Header = () => {
           </div>
           
           {/* Desktop right menu items */}
-          <div className='hidden sm:flex items-center space-x-1 sm:space-x-2'>
-            <div className='flex items-center p-1 rounded-full cursor-pointer hover:bg-gray-100'>
+          <div className=' sm:flex items-center space-x-1 sm:space-x-2'>
+            <a 
+             className='flex items-center p-1 rounded-full cursor-pointer hover:bg-gray-100'
+             href='/profile'
+            >
               <img 
                 src={user.photoURL} 
                 alt="Profile" 
                 className='mr-2.5  rounded-full h-10 w-10 object-cover'
               />
               <span className='hidden lg:block ml-2 font-medium'>{user.displayName}</span>
-            </div>
-            <div className='p-1 sm:p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
+            </a>
+            <div className='p-1 hidden lg:block sm:p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
               <IoMdAdd className='text-lg sm:text-xl' />
             </div>
-            <div className='p-1 sm:p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
+            <div className='p-1 sm:p-2 hidden lg:block rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
               <MdForum className='text-lg sm:text-xl' />
             </div>
-            <div className='p-1 sm:p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
+            <div className='p-1 sm:p-2 hidden md:block rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
               <MdNotificationsActive className='text-lg sm:text-xl' />
             </div>
             <div className="relative">

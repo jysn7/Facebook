@@ -10,23 +10,43 @@ const stories = [
   },
   {
     profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Eden",
-    image: "https://images.unsplash.com/photo-1743856842985-e1d4fc72a255?q=80&w=709&auto=format&fit=crop",
-    title: "Mihle"
+    image: "https://i.pinimg.com/736x/f9/0c/17/f90c1791c26bb12fc4b8d525fa3338fd.jpg",
+    title: "Repunzel"
   },
   {
     profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Christian",
-    image: "https://images.unsplash.com/photo-1743300873242-66867adc485b?q=80&w=687&auto=format&fit=crop",
-    title: "Mutsa"
+    image: "https://images.unsplash.com/photo-1511406361295-0a1ff814c0ce?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Pinky Pinky"
   },
   {
     profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Sawyer",
     image: "https://images.unsplash.com/photo-1744144501263-d51045ebec13?q=80&w=764&auto=format&fit=crop",
-    title: "Karabo"
+    title: "A. Hamilton"
   },
   {
     profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Sophia",
     image: "https://images.unsplash.com/photo-1750265212496-c8c01ee2c1bf?q=80&w=687&auto=format&fit=crop",
     title: "Andy"
+  },
+  {
+    profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Sophia",
+    image: "https://images.unsplash.com/photo-1526052902936-2f0e8fa5121a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Barabra B."
+  },
+  {
+    profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Sophia",
+    image: "https://i.pinimg.com/736x/1b/00/40/1b0040c64af41da706a51d610e7407b5.jpg",
+    title: "Spongebob"
+  },
+  {
+    profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Sophia",
+    image: "https://i.pinimg.com/736x/76/dc/06/76dc060c910071887ae37f1beba3c594.jpg",
+    title: "Finn"
+  },
+  {
+    profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Sophia",
+    image: "https://i.pinimg.com/736x/63/3a/0c/633a0cdb1a5378ee522739bda70c7370.jpg",
+    title: "Asta"
   }
 ]
 
