@@ -52,7 +52,7 @@ function App() {
           <Header />
           <div className="flex h-[100vh]"> {/* Subtract header height */}
             {/* Sidebar - fixed width and sticky */}
-            <div className="hidden lg:block w-64 flex-shrink-0 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto">
+            <div className="hidden scrollbar-hide lg:block w-64 flex-shrink-0 sticky top-16 h-[calc(100vh-64px)] overflow-y-auto">
               <Sidebar />
             </div>
             

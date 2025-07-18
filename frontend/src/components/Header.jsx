@@ -68,15 +68,15 @@ const Header = () => {
         {/* Left section */}
         <div className='flex items-center'>
           <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Chat-bubble.png"
-            alt="yappa logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png"
+            alt="facebook logo"
             className='h-8 sm:h-10'
           />
           <div className='hidden sm:flex items-center bg-[#eff2f5] p-2 ml-2 rounded-full'>
             <FaSearch className="text-gray-500" />
             <input 
               type="text" 
-              placeholder="Search Yappa"
+              placeholder="Search Facebook"
               className='hidden md:block bg-transparent border-none outline-none ml-2 w-40 lg:w-60'
             />
           </div>
@@ -216,8 +216,6 @@ const Header = () => {
 
             {/* Sidebar content */}
             <nav className="p-6 space-y-4">
-              
-
               <div className="flex items-center p-3 rounded-lg cursor-pointer text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition">
                 <MdForum className="mr-3 text-xl" />
                 <span>Messages</span>
@@ -251,6 +249,22 @@ const Header = () => {
                 Log Out
               </button>
             </nav>
+
+            {/* Footer disclaimer */}
+            <div className='px-4 mt-12 mb-4'>
+              {/* Disclaimer */}
+              <div className='text-[11px] text-gray-500 leading-snug text-center mb-3'>
+                <p>
+                  <strong>Disclaimer:</strong> This is a student-built portfolio project inspired by Facebook’s UI. Not affiliated with Meta Platforms, Inc.
+                </p>
+              </div>
+
+              {/* Footer */}
+              <div className='text-center text-xs text-gray-400 font-semibold'>
+                By <span className='text-blue-500 tracking-wider'>JYSN</span>
+              </div>
+            </div>
+
           </motion.div>
         </div>
       )}

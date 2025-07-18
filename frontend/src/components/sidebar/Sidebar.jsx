@@ -18,8 +18,9 @@ const Sidebar = () => {
   const [{ user }, dispatch] = useStateValue();
 
   return (
-    <div className='hidden lg:block lg:flex-[0.33] lg:py-6.25 lg:px-2.5 fixed h-[calc(100vh-20px)] mt-10 top-5 overflow-y-auto md:flex-col justify-between'>
-      {/* Content */}
+    <div className='flex flex-col  justify-between px-2.5 py-4 h-full'>
+
+      {/* Top Section */}
       <div className='px-2.5'>
         <SidebarRow title={user.displayName} src={user.photoURL} />
         <SidebarRow Icon={FaUserFriends} title="Friends" />
@@ -33,12 +34,22 @@ const Sidebar = () => {
         <SidebarRow Icon={MdOutlineExpandMore} />
       </div>
 
-      {/* Footer */}
-      <footer className='flex justify-center gap-1 font-semibold bottom-0 fixed left-30 text-center text-xs text-gray-400 py-4'>
-         By <span className='text-blue-500 tracking-wider'>{" "}JYSN</span>
-      </footer>
+      {/* Bottom Section: Disclaimer + Footer */}
+      <div className='px-4 mt-6 mb-4'>
+        {/* Disclaimer */}
+        <div className='text-[11px] text-gray-500 leading-snug text-center mb-3'>
+          <p>
+            <strong>Disclaimer:</strong> This is a student-built portfolio project inspired by Facebook’s UI. Not affiliated with Meta Platforms, Inc.
+          </p>
+        </div>
+
+        {/* Footer */}
+        <div className='text-center text-xs text-gray-400 font-semibold'>
+          By <span className='text-blue-500 tracking-wider'>JYSN</span>
+        </div>
+      </div>
     </div>
   )
 }
 
-export default Sidebar;
+export default Sidebar

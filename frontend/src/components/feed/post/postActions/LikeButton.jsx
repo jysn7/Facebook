@@ -6,8 +6,8 @@ export default function LikeButton({ liked, animateLike, setAnimateLike, handleL
   return (
     <button
       onClick={handleLike}
-      className={`relative hover:bg-[#eff2f5] cursor-pointer hover:rounded-xl hover:text-blue-300 flex items-center justify-center p-1 flex-1 ${
-        liked ? 'text-blue-500 font-semibold' : ''
+      className={`relative hover:bg-[#eff2f5] cursor-pointer hover:rounded-xl flex items-center justify-center p-1 flex-1 ${
+        liked ? 'text-blue-500 font-semibold' : 'text-gray-600'
       }`}
     >
       <motion.div
@@ -38,7 +38,7 @@ export default function LikeButton({ liked, animateLike, setAnimateLike, handleL
           />
         )}
       </motion.div>
-      <p className="ml-2.5">Like</p>
+      <p className="ml-2.5">{liked ? 'Liked' : 'Like'}</p>
     </button>
   );
 }
