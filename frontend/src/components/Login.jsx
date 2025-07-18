@@ -48,15 +48,13 @@ const Login = () => {
 
       <div className="flex flex-col items-center space-y-6">
         <img 
-          className="object-contain h-[150px]"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/800px-2023_Facebook_icon.svg.png" 
-          alt="facebook-logo" 
+          className="object-contain h-[100px] text-blue-500"
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Chat-bubble.png" 
+          alt="yappa-logo" 
         />
-        <img 
-          className="object-contain h-[150px]"
-          src="https://www.logo.wine/a/logo/Facebook/Facebook-Logo.wine.svg" 
-          alt="facebook-wine" 
-        />
+        <h1 
+          className="text-3xl tracking-wider text-blue-500 font-extrabold" 
+        >Yappa</h1>
         <button
           className="w-64 py-3 rounded hover:border-1 hover:shadow hover:border-blue-500 transition-colors cursor-pointer bg-[#2e81f4] text-[#eff2f5] font-semibold hover:bg-white hover:text-[#2e81f4] disabled:opacity-60 disabled:cursor-not-allowed"
           type="button"
