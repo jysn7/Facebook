@@ -66,9 +66,7 @@ const Login = () => {
         >
           Sign In
         </button>
-        <p className="text-xs text-gray-500 mt-2">
-          This app is not affiliated with or endorsed by Facebook.
-        </p>
+        
       </div>
     </div>
   );
