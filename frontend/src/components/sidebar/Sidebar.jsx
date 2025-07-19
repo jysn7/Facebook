@@ -10,7 +10,8 @@ import {
   MdOutlineGroups3,
   MdPersonalVideo
 } from 'react-icons/md'
-import { FaStore, FaUserFriends } from 'react-icons/fa'
+import { FaFacebookMessenger, FaGift, FaStore, FaUserFriends } from 'react-icons/fa'
+import { TfiVideoClapper } from "react-icons/tfi";
 import { CiSaveDown1 } from 'react-icons/ci'
 import { useStateValue } from '../StateProvide'
 
@@ -31,6 +32,9 @@ const Sidebar = () => {
         <SidebarRow Icon={FaStore} title="Marketplace" />
         <SidebarRow Icon={BsCalendar} title="Events" />
         <SidebarRow Icon={BsGraphUp} title="Analytics" />
+        <SidebarRow Icon={FaGift} title="Birthdays" />
+        <SidebarRow Icon={FaFacebookMessenger} title="Mesenger" />
+        <SidebarRow Icon={TfiVideoClapper} title="Mesenger" />
         <SidebarRow Icon={MdOutlineExpandMore} />
       </div>
 

@@ -178,7 +178,7 @@ const Post = ({ id, profilePic, username, image, timestamp, message }) => {
 
   return (
     <>
-      <div className="w-full mt-4 rounded-2xl bg-white shadow">
+      <div className="w-full mt-0.5 rounded-2xl bg-white shadow">
         {/* Header */}
         <PostHeader
          profilePic={postData.profilePic}

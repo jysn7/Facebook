@@ -6,7 +6,7 @@ const stories = [
   {
     profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Sara",
     image: "https://images.unsplash.com/photo-1751401373796-413fffd7d410?q=80&w=688&auto=format&fit=crop",
-    title: "Jayson"
+    title: "Jayson Sibusiso"
   },
   {
     profileSrc: "https://api.dicebear.com/9.x/adventurer/svg?seed=Eden",
@@ -85,11 +85,11 @@ const StoryReel = () => {
         ref={scrollRef}
         className="w-full overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
       >
-        <div className="flex space-x-3 pl-3 pr-3">
+        <div className="flex space-x-1 pl-1 pr-1">
           {stories.map((story, index) => (
           <div
             key={index}
-            className="shrink-0 snap-center w-[112px]  md:w-[117px] lg:w-[120px]"
+            className="shrink-0 snap-center w-[100px]  md:w-[105px] lg:w-[105px]"
           >
             <Story {...story} />
           </div>

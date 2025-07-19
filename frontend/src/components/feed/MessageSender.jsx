@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FaVideo } from 'react-icons/fa';
-import { IoImagesOutline } from 'react-icons/io5';
+import { IoImagesOutline, IoVideocam } from 'react-icons/io5';
 import { VscSmiley } from 'react-icons/vsc';
 import { useStateValue } from '../StateProvide';
 import  db  from '../../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { IoMdImages } from 'react-icons/io';
 
 const MessageSender = () => {
     const [{ user }, dispatch] = useStateValue();
@@ -45,13 +46,13 @@ const MessageSender = () => {
 };
 
     return (
-        <div className='mt-4 sm:mt-7 bg-white rounded-lg sm:rounded-2xl shadow w-full max-w-full overflow-hidden'>
+        <div className='mt-3 sm:mt-7 bg-white rounded-lg sm:rounded-2xl shadow w-full max-w-full overflow-hidden'>
             {/* Top section - Input area */}
-            <div className='flex border-b border-[#eff2f5] p-3 sm:p-4'>
+            <div className='flex border-b  border-[#eff2f5] p-2.5 sm:p-4'>
                 <img 
                     src={user?.photoURL || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
                     alt="profile" 
-                    className='h-8 w-8 sm:h-10 sm:w-10 border-2 sm:border-4 border-[#2e81f4] rounded-full object-cover mr-2 sm:mr-3 flex-shrink-0'
+                    className='h-8 w-8 sm:h-10 sm:w-10  rounded-full object-cover mr-2 sm:mr-3 flex-shrink-0'
                     onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
@@ -83,13 +84,13 @@ const MessageSender = () => {
             </div>
 
             {/* Bottom section - Options */}
-            <div className='flex justify-evenly p-2 py-4 sm:p-4'>
+            <div className='flex justify-evenly  py-2 px-2'>
                 <div className='flex items-center justify-center flex-1 p-2 rounded-lg hover:bg-[#eff2f5] cursor-pointer transition-colors text-gray-500 overflow-hidden'>
-                    <FaVideo className='text-red-500 text-lg sm:text-xl mr-1 sm:mr-2 flex-shrink-0' />
+                    <IoVideocam  className='text-red-500 text-lg sm:text-xl mr-1 sm:mr-2 flex-shrink-0' />
                     <span className='text-xs sm:text-sm font-medium truncate'>Live Video</span>
                 </div>
                 <div className='flex items-center justify-center flex-1 p-2 rounded-lg hover:bg-[#eff2f5] cursor-pointer transition-colors text-gray-500 overflow-hidden'>
-                    <IoImagesOutline className='text-green-500 text-lg sm:text-xl mr-1 sm:mr-2 flex-shrink-0' />
+                    <IoMdImages  className='text-green-500 text-lg sm:text-xl mr-1 sm:mr-2 flex-shrink-0' />
                     <span className='text-xs sm:text-sm font-medium truncate'>Photo/Video</span>
                 </div>
                 <div className='flex items-center justify-center flex-1 p-2 rounded-lg hover:bg-[#eff2f5] cursor-pointer transition-colors text-gray-500 overflow-hidden'>

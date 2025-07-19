@@ -8,7 +8,7 @@ const SidebarRow = ({src, Icon, title}) => {
         {src && <img 
                     src={user?.photoURL || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}
                     alt="profile" 
-                    className='h-8 w-8  rounded-full object-cover  flex-shrink-0'
+                    className='h-8 w-8 -ml-1.5  rounded-full object-cover  flex-shrink-0'
                     onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";

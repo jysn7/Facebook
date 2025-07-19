@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { FaSearch, FaHome, FaBars, FaTimes } from "react-icons/fa"
-import { BsFlag } from "react-icons/bs";
+import { FaSearch, FaHome, FaBars, FaTimes, FaUserFriends, FaFacebookMessenger } from "react-icons/fa"
+import { BsFillGrid3X3GapFill, BsFlag } from "react-icons/bs";
 import { motion } from 'framer-motion';
 import { 
   MdOutlineSubscriptions, 
@@ -14,12 +14,13 @@ import {
   MdLogout
 } from "react-icons/md"
 import { IoLogOutOutline, IoStorefront } from "react-icons/io5"
-import { IoMdAdd } from "react-icons/io"
+import { IoLogoGameControllerA, IoMdAdd } from "react-icons/io"
 import { RxAvatar } from "react-icons/rx"
 import { useStateValue } from './StateProvide'
 import { auth } from '../firebase'
 import { signOut } from 'firebase/auth'
 import { actionTypes } from './reducer'
+import { PiVideo } from "react-icons/pi";
 
 const Header = () => {
   const [{user}, dispatch] = useStateValue();
@@ -64,7 +65,7 @@ const Header = () => {
 
   return (
     <>
-      <div className='flex py-3.5 px-2 sm:px-5 justify-between sticky bg-white top-0 shadow-md z-50'>
+      <div className='flex py-1.5 px-2 sm:px-5 justify-between sticky bg-white top-0 shadow-md z-50'>
         {/* Left section */}
         <div className='flex items-center'>
           <img 
@@ -72,32 +73,32 @@ const Header = () => {
             alt="facebook logo"
             className='h-8 sm:h-10'
           />
-          <div className='hidden sm:flex items-center bg-[#eff2f5] p-2 ml-2 rounded-full'>
+          <div className=' flex items-center bg-[#eff2f5] px-2 py-1 ml-2 rounded-full'>
             <FaSearch className="text-gray-500" />
             <input 
               type="text" 
               placeholder="Search Facebook"
-              className='hidden md:block bg-transparent border-none outline-none ml-2 w-40 lg:w-60'
+              className=' md:block bg-transparent border-none outline-none ml-2 w-20 lg:w-50'
             />
           </div>
         </div>
 
         {/* Center section */}
-        <div className=' flex flex-1 justify-center max-w-2xl'>
+        <div className='hidden md:flex flex-1 md:mr-26 justify-center max-w-2xl'>
           <div className='flex items-center border-b-3 border-b-blue-500 mx-1 sm:mx-2 px-2 sm:px-4 py-2 hover:rounded-lg cursor-pointer hover:bg-[#eff2f5]'>
             <FaHome className='text-[#2e81f4] text-xl sm:text-2xl' />
           </div>
           <div className='flex items-center mx-1 sm:mx-2 px-2 sm:px-4 py-2 rounded-lg cursor-pointer hover:bg-[#eff2f5] text-gray-500 hover:text-[#2e81f4]'>
-            <BsFlag className='text-xl sm:text-2xl' />
+            <FaUserFriends  className='text-xl sm:text-2xl' />
           </div>
           <div className='flex items-center mx-1 sm:mx-2 px-2 sm:px-4 py-2 rounded-lg cursor-pointer hover:bg-[#eff2f5] text-gray-500 hover:text-[#2e81f4]'>
-            <MdOutlineSubscriptions className='text-xl sm:text-2xl' />
+            <PiVideo  className='text-xl sm:text-2xl' />
           </div>
           <div className='flex items-center mx-1 sm:mx-2 px-2 sm:px-4 py-2 rounded-lg cursor-pointer hover:bg-[#eff2f5] text-gray-500 hover:text-[#2e81f4]'>
             <IoStorefront className='text-xl sm:text-2xl' />
           </div>
           <div className='flex items-center mx-1 sm:mx-2 px-2 sm:px-4 py-2 rounded-lg cursor-pointer hover:bg-[#eff2f5] text-gray-500 hover:text-[#2e81f4]'>
-            <MdSupervisedUserCircle className='text-xl sm:text-2xl' />
+            <IoLogoGameControllerA  className='text-xl sm:text-2xl' />
           </div>
         </div>
 
@@ -105,66 +106,66 @@ const Header = () => {
         <div className='flex items-center space-x-1 sm:space-x-2'>
           
           {/* Desktop right menu items */}
-          <div className=' sm:flex items-center space-x-1 sm:space-x-2'>
-            <div 
-             className='flex items-center p-1 rounded-full cursor-pointer hover:bg-gray-100'
-            >
-              <img 
-                src={user.photoURL} 
-                alt="Profile" 
-                className='mr-2.5  rounded-full h-10 w-10 object-cover'
-              />
-              <span className='hidden lg:block ml-2 font-medium'>{user.displayName}</span>
-            </div>
             <div className='p-1 hidden lg:block sm:p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
-              <IoMdAdd className='text-lg sm:text-xl' />
+              <BsFillGrid3X3GapFill  className='text-lg sm:text-xl' />
             </div>
             <div className='p-1 sm:p-2 hidden lg:block rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
-              <MdForum className='text-lg sm:text-xl' />
+              <FaFacebookMessenger className='text-lg sm:text-xl' />
             </div>
             <div className='p-1 sm:p-2 hidden md:block rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>
               <MdNotificationsActive className='text-lg sm:text-xl' />
             </div>
-            <div className="relative">
-              <button 
-                className={`hidden sm:block p-1 sm:p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300 text-lg sm:text-xl transition-transform duration-200 ${isExpandOpen ? 'rotate-180' : 'rotate-0'}`}
-                onClick={toggleExpandOptions}
-                aria-expanded={isExpandOpen}
-                aria-haspopup="true"
-                aria-label="More options"
+            
+            <div className=' sm:flex items-center space-x-1 '>
+              <div 
+              className='flex items-center p-1 rounded-full cursor-pointer hover:bg-gray-100'
               >
-                <MdExpandMore className='text-lg sm:text-xl' />
-              </button>
+                <img 
+                  src={user.photoURL} 
+                  alt="Profile" 
+                  className='mr-2.5  rounded-full h-10 w-10 object-cover'
+                />
+                <div className="relative">
+                  <button 
+                    className={`hidden sm:block p-1 sm:p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300 text-lg sm:text-xl transition-transform duration-200 ${isExpandOpen ? 'rotate-180' : 'rotate-0'}`}
+                    onClick={toggleExpandOptions}
+                    aria-expanded={isExpandOpen}
+                    aria-haspopup="true"
+                    aria-label="More options"
+                  >
+                    <MdExpandMore className='text-lg sm:text-xl' />
+                  </button>
 
-              {isExpandOpen && (
-                <div 
-                  ref={expandMenuRef}
-                  className="absolute border-1 border-gray-200 right-0 mt-2 w-50 origin-top-right rounded-md bg-white shadow-lg  ring-opacity-5 focus:outline-none z-50"
-                  role="menu"
-                  aria-orientation="vertical"
-                >
-                  <div className="" role="none">
-                    <button
-                      className="flex w-full items-center px-4 cursor-pointer py-3 border-b-2 border-b-gray-200 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                      onClick={() => setIsExpandOpen(false)}
+                  {isExpandOpen && (
+                    <div 
+                      ref={expandMenuRef}
+                      className="absolute border-1 border-gray-200 right-0 mt-2 w-50 origin-top-right rounded-md bg-white shadow-lg  ring-opacity-5 focus:outline-none z-50"
+                      role="menu"
+                      aria-orientation="vertical"
                     >
-                      <MdSettings className="mr-3 h-5 w-5 text-gray-400" />
-                      Settings
-                    </button>
-                    <button
-                      className="flex w-full items-center px-4 py-3 cursor-pointer text-sm text-red-500 hover:bg-gray-100 hover:text-gray-900"
-                      role="menuitem"
-                      onClick={handleLogout}
-                    >
-                      <IoLogOutOutline className="mr-3 h-5 w-5 text-red-500" />
-                      Logout
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>         
-          </div>
+                      <div className="" role="none">
+                        <button
+                          className="flex w-full items-center px-4 cursor-pointer py-3 border-b-2 border-b-gray-200 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                          role="menuitem"
+                          onClick={() => setIsExpandOpen(false)}
+                        >
+                          <MdSettings className="mr-3 h-5 w-5 text-gray-400" />
+                          Settings
+                        </button>
+                        <button
+                          className="flex w-full items-center px-4 py-3 cursor-pointer text-sm text-red-500 hover:bg-gray-100 hover:text-gray-900"
+                          role="menuitem"
+                          onClick={handleLogout}
+                        >
+                          <IoLogOutOutline className="mr-3 h-5 w-5 text-red-500" />
+                          Logout
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>  
+              </div>       
+            </div>
 
           {/* Mobile menu button - only shows on small screens */}
           <div className='sm:hidden p-2 rounded-full text-gray-500 cursor-pointer hover:bg-gray-300'>

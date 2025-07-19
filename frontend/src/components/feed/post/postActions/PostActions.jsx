@@ -6,7 +6,7 @@ import ExpandMenu from './ExpandMenu';
 
 export default function PostActions(props) {
   return (
-    <div className="pt-2.5 border-t border-gray-200 flex justify-evenly text-md text-gray-500 cursor-pointer px-3.5 pb-3.5">
+    <div className="pt-1.5 border-t border-gray-200 flex justify-evenly text-md text-gray-500 cursor-pointer px-3.5 pb-2">
       <LikeButton
         liked={props.liked}
         animateLike={props.animateLike}
